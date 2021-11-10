@@ -111,7 +111,7 @@ $ htar -xvf ${gefstarpath} ./${gefsfile}; mkdir ${savedir}/gefs.20210110; mv ${g
 
 __Note:__ The repo contains sample configuration files for generating s2s statistics. These files are located in the METplus folder. <br> 
 _For CFS:_ MET and METplus files are preset for isobaric temperature verification.<br>
-_For GEFS:_ MET and METplus files are present for accumulated precipitation verification.<br>
+_For GEFS:_ MET and METplus files are preset for accumulated precipitation verification.<br>
 
 CFS\_TMP\_grid\_stat\_metplus.conf:
 - Under \[config\], set INIT\_BEG and INIT\_END to the same desired initialization date
