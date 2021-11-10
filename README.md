@@ -6,8 +6,8 @@
 ##### Created:       Sept. 29, 2021
 ##### Last Modified: Oct. 25, 2021
 
-### SET UP
 ---
+### SET UP
 
 Scripts in this repository are designed to run on NCEP's Hera supercomputer.
 Via Hera, it is suggested to have the following lines in your .bashrc or .cshrc file:
@@ -141,10 +141,8 @@ GEFS\_PCP\_grid\_stat\_metplus.conf:
 ---
 ### OPTIONAL INSTRUCTIONS FOR SETTING UP THE MET CONFIG FILES
 
-- OPTIONAL: In the 'mask' dictionary, set 'poly' to a comma-separated list of strings containing paths to polylines, 
-            if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain 
-            at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs 
-            indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
+- OPTIONAL: In the 'mask' dictionary, set 'poly' to a comma-separated list of strings containing paths to polylines, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
 
 ---
 ### INSTRUCTIONS FOR RUNNING METPLUS
