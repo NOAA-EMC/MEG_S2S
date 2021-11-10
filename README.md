@@ -1,8 +1,8 @@
 # S2S\_Python
 ##### Contributors:  Marcel Caron \(NOAA/EMC\),
 ##### Description:   Python library containing tools for case-by-case 
-#####                seasonal and subseasonal verification in the EMC Model 
-#####                Evaluation Group.
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seasonal and subseasonal verification in the EMC Model 
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Evaluation Group.
 ##### Created:       Sept. 29, 2021
 ##### Last Modified: Oct. 25, 2021
 
@@ -141,8 +141,7 @@ GEFS\_PCP\_grid\_stat\_metplus.conf:
 ---
 ### OPTIONAL INSTRUCTIONS FOR SETTING UP THE MET CONFIG FILES
 
-- OPTIONAL: In the 'mask' dictionary, set 'poly' to a comma-separated list of strings containing paths to polylines, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
+- OPTIONAL: In the 'mask' dictionary, set 'poly' to a comma-separated list of strings containing paths to polylines, if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
 
 ---
 ### INSTRUCTIONS FOR RUNNING METPLUS
