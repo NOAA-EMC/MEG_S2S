@@ -57,32 +57,33 @@ $ mkdir -p ~/.local/share && cp -r cartopy ~/.local/share/.
 ### DATA DIRECTORIES
 
 Scripts use monthly cfs and analysis timeseries, but some scripts may be flexible enough to use hourly "time" timeseries.<br>
+
 Both monthly and hourly CFS and CFSR input data, and other relevant data, may be found in tarballs on HPSS \(as of Sept. 29 2021\):
 
-CFS:
+__CFS:__
 ```
 /NCEPPROD/hpssprod/runhistory/cfsYYYY/YYYYmm/YYYYmmdd/monthly/cfs.pgbf.YYYYmmddHH.mPP.monthly.tar
 /NCEPPROD/hpssprod/runhistory/cfsYYYY/YYYYmm/YYYYmmdd/time/cfs.YYYYmmddHH.mPP.time.tar 
 ```
 
-CFSR:
+__CFSR:__
 ```
 /NCEPPROD/hpssprod/runhistory/cfsYYYY/YYYYmm/monthly_analysis/cfs.pgb.YYYYmm.monthly.tar
 /NCEPPROD/hpssprod/runhistory/cfsYYYY/YYYYmm/YYYYmmdd/Analysis/cfs.pgrbh.YYYYmmdd.tar
 ```
 
-GEFS:
+__GEFS:__
 ```
 /NCEPPROD/2year/hpssprod/runhistory/rhYYYY/YYYYmm/YYYYmmdd/com_gefs_prod_gefs.YYYYmmdd_HH.atmos_pgrb2ap5.tar
 /NCEPPROD/2year/hpssprod/runhistory/rhYYYY/YYYYmm/YYYYmmdd/com_gefs_prod_gefs.YYYYmmdd_HH.atmos_pgrb2sp25.tar
 ```
 
-GFS:
+__GFS:__
 ```
 /NCEPPROD/hpssprod/runhistory/rhYYYY/YYYYmm/YYYYmmdd/com_gfs_prod_gfs.YYYYmmdd_HH.gfs_pgrb2.tar
 ```
 
-RAP:
+__RAP:__
 ```
 /NCEPPROD/hpssprod/runhistory/2year/rhYYYY/YYYYmm/YYYYmmdd/com_rap_prod_rap.YYYYmmdd\(00-05/06-11/12-17/18-23\).awp130.tar
 ```
@@ -108,9 +109,9 @@ $ htar -xvf ${gefstarpath} ./${gefsfile}; mkdir ${savedir}/gefs.20210110; mv ${g
 ---
 ### INSTRUCTIONS FOR SETTING UP METPLUS CONFIG FILES
 
-Note: The repo contains sample configuration files for generating s2s statistics. These files are located in the METplus folder. <br> 
-For CFS: MET and METplus files are preset for isobaric temperature verification.<br>
-For GEFS: MET and METplus files are present for accumulated precipitation verification.<br>
+__Note:__ The repo contains sample configuration files for generating s2s statistics. These files are located in the METplus folder. <br> 
+_For CFS:_ MET and METplus files are preset for isobaric temperature verification.<br>
+_For GEFS:_ MET and METplus files are present for accumulated precipitation verification.<br>
 
 CFS\_TMP\_grid\_stat\_metplus.conf:
 - Under \[config\], set INIT\_BEG and INIT\_END to the same desired initialization date
@@ -141,7 +142,7 @@ GEFS\_PCP\_grid\_stat\_metplus.conf:
 ---
 ### OPTIONAL INSTRUCTIONS FOR SETTING UP THE MET CONFIG FILES
 
-- OPTIONAL: In the 'mask' dictionary, set 'poly' to a comma-separated list of strings containing paths to polylines, if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
+- _OPTIONAL:_ In the 'mask' dictionary, set 'poly' to a comma-separated list of strings containing paths to polylines, if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
 
 ---
 ### INSTRUCTIONS FOR RUNNING METPLUS
