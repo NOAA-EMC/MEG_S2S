@@ -113,7 +113,7 @@ __Note:__ The repo contains sample configuration files for generating s2s statis
 _For CFS:_ MET and METplus files are preset for isobaric temperature verification.<br>
 _For GEFS:_ MET and METplus files are preset for accumulated precipitation verification.<br>
 
-CFS\_TMP\_grid\_stat\_metplus.conf:
+<ins>CFS\_TMP\_grid\_stat\_metplus.conf:</ins>
 - Under \[config\], set INIT\_BEG and INIT\_END to the same desired initialization date
 - Under \[config\], set BOTH\_VAR1\_LEVELS to comma-separated list of pressure levels \(e.g., P850 for 850-hPa level\)
 - Under \[config\], set the LEAD\_SEQ to comma-separated list of desired lead days \(number of days followed by "d"\)
@@ -124,7 +124,7 @@ CFS\_TMP\_grid\_stat\_metplus.conf:
 - Under \[filename\_templates\], set FCST\_REGRID\_DATA\_PLANE\_INPUT\_TEMPLATE and OBS\_GRID\_STAT\_INPUT\_TEMPLATE, matching names of forecast and observational data files, respectively. Use METplus datetime keywords where necessary \(e.g., {init?fmt=%Y%m%d%H}\)
 - Under \[filename\_templates\], set GRID\_STAT\_CLIMO\_MEAN\_INPUT\_TEMPLATE matching names of climatological data files
 
-GEFS\_PCP\_grid\_stat\_metplus.conf:
+<ins>GEFS\_PCP\_grid\_stat\_metplus.conf:</ins>
 - Under \[config\], set VALID\_BEG and VALID\_END to the same desired valid date
 - Under \[config\], set BOTH\_VAR1\_LEVELS to the desired accumulation \(e.g., 'A06' for 6-h accumulation; this should correspond to settings for FCST\_PCP\_COMBINE\_OUTPUT\_ACCUMS and OBS\_PCP\_COMBINE\_OUTPUT\_ACCUMS\)
 - Under \[config\], set BOTH\_VAR1\_THRESH to comma-separated list of desired precipitation thresholds \(used for contingency table statistics\)
@@ -163,7 +163,7 @@ GEFS\_PCP\_grid\_stat\_metplus.conf:
 ---
 ### INSTRUCTIONS FOR SETTING UP PYTHON SCRIPTS
 
-ensemble\_temperature\_probability.py:
+<ins>ensemble\_temperature\_probability.py:</ins>
 - Set DATA\_DIR and SAVE\_DIR as high-level data directory \(to be continued in the file string setting below\) and the directory where plots should be saved, respectively.
 - Set gefs\_string and climo\_string as continuations of DATA\_DIR, which in combination form the path to the gefs data files and climatology data files, respectively.
 - Set values in the day\_range tuple, which represent start and end day of averaging period 
@@ -174,7 +174,7 @@ ensemble\_temperature\_probability.py:
 - Set latrange, lonrange, parallels, merid, and figsize according to desired domain.  These will be used if "other" was included in the list of requested domains
 - Manually set the grid resolution, in degrees lat/lon, or put None to use the analysis grid. Setting this may cause the script to fail if the requested resolution is too fine for the domain.
 
-height\_anoms.py:
+<ins>height\_anoms.py:</ins>
 - Set DATA\_DIR and SAVE\_DIR as high-level data directory \(to be continued in the file string setting below\) and the directory where plots should be saved, respectively.
 - Set climo\_string, gefs\_string and gefsanl\_string or cfs\_string and cfsanl\_string as continuations of DATA\_DIR, which in combination form the path to the climatology data files and forecast/analysis data files, respectively.
 - Set list of requested valid times in datetime format. May alternatively put either a list of datetime tuples or a list of mixed datetime tuples and single datetime objects. For tuples, the script will compute a mean value across a valid period, where the tuple represents the start and end times \(inclusive\) of the valid period. 
@@ -187,7 +187,7 @@ height\_anoms.py:
 - Set latrange, lonrange, parallels, merid, and figsize according to desired domain.  These will be used if "other" was included in the list of requested domains
 - Manually set the grid resolution, in degrees lat/lon, or put None to use the analysis grid. Setting this may cause the script to fail if the requested resolution is too fine for the domain.
 
-temp\_anoms.py:
+<ins>temp\_anoms.py:</ins>
 - Set DATA\_DIR and SAVE\_DIR as high-level data directory \(to be continued in the file string setting below\) and the directory where plots should be saved, respectively.
 - Set climo\_string, gefs\_string and gefsanl\_string or cfs\_string and cfsanl\_string as continuations of DATA\_DIR, which in combination form the path to the climatology data files and forecast/analysis data files, respectively.
 - Set list of requested valid times in datetime format. May alternatively put either a list of datetime tuples or a list of mixed datetime tuples and single datetime objects. For tuples, the script will compute a mean value across a valid period, where the tuple represents the start and end times \(inclusive\) of the valid period. 
@@ -200,7 +200,7 @@ temp\_anoms.py:
 - Set latrange, lonrange, parallels, merid, and figsize according to desired domain.  These will be used if "other" was included in the list of requested domains
 - Manually set the grid resolution, in degrees lat/lon, or put None to use the analysis grid. Setting this may cause the script to fail if the requested resolution is too fine for the domain.
 
-modified\_taylor\_diagram.py:
+<ins>modified\_taylor\_diagram.py:</ins>
 - Set list of requested initialization times in datetime format
 - Set STATS\_DIR and SAVE\_DIR as high-level directory containing metplus output \(to be continued in the file string setting below\) and the directory where plots should be saved, respectively.
 - Set fstring string as continuation of STATS\_DIR, which in combination form the path to the metplus output text files \("cnt" or "sal1l2" suffixes\).
@@ -213,7 +213,7 @@ modified\_taylor\_diagram.py:
 - Set list of domains/polylines used to compute statistics. Used to index stats in the stats file\(s\).  Make sure this matches one of the values under the "VX\_MASK" column in the stats file\(s\).
 - Set list of colors and shapes from which the script will grab to plot each requested model.  The order will correspond to the order in which models are listed.
 
-teleconnections.py:
+<ins>teleconnections.py:</ins>
 - Set DATA\_DIR and SAVE\_DIR as high-level data directory \(to be continued in the file string setting below\) and the directory where plots should be saved, respectively.
 - Set fcst\_string, anl\_string, and climo\_string as continuations of DATA\_DIR, which in combination form the path to the forecast, analysis, and climatology data files, respectively
 - Set list of requested initialization times in datetime format
@@ -226,7 +226,7 @@ teleconnections.py:
 ---
 ### INSTRUCTIONS FOR RUNNING PYTHON SCRIPTS
 
-python\_job.sh:
+<ins>python\_job.sh:</ins>
 - Most of the above scripts can't be run on the login nodes without getting your job killed and receiving an email.
 - In python\_job.sh, set the --output option to where SBATCH output should be stored for each job. Include %j or $$ in the name so that each job is uniquely identifiable.
 - Set other SBATCH options as needed to run jobs from your account \(e.g., `--account=ovp` will not work if you are not in the ovp group\)
