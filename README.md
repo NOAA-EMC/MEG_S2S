@@ -56,7 +56,7 @@ $ mkdir -p ~/.local/share && cp -r cartopy ~/.local/share/.
 ---
 ### DATA DIRECTORIES
 
-Scripts use monthly cfs and analysis timeseries, but some scripts may be flexible enough to use hourly "time" timeseries
+Scripts use monthly cfs and analysis timeseries, but some scripts may be flexible enough to use hourly "time" timeseries.<br>
 Both monthly and hourly CFS and CFSR input data, and other relevant data, may be found in tarballs on HPSS \(as of Sept. 29 2021\):
 
 CFS:
@@ -92,7 +92,7 @@ RAP:
 `dd`   = day  
 `HH`   = hour  
 `PP`   = model member in {01, 02, 03, 04}  
-For RAP, `\(string1/string2/string3/string4\)` means choose and insert a string out of {string1, string2, string3, string4}  
+For RAP, `(string1/string2/string3/string4)` means choose and insert a string out of {string1, string2, string3, string4}  
 
 ---
 ### EXAMPLE FOR DOWNLOADING DATA FROM HPSS
@@ -108,9 +108,9 @@ $ htar -xvf ${gefstarpath} ./${gefsfile}; mkdir ${savedir}/gefs.20210110; mv ${g
 ---
 ### INSTRUCTIONS FOR SETTING UP METPLUS CONFIG FILES
 
-Note: The repo contains sample configuration files for generating s2s statistics. These files are located in the METplus folder 
-For CFS: MET and METplus files are preset for isobaric temperature verification.
-For GEFS: MET and METplus files are present for accumulated precipitation verification.
+Note: The repo contains sample configuration files for generating s2s statistics. These files are located in the METplus folder. <br> 
+For CFS: MET and METplus files are preset for isobaric temperature verification.<br>
+For GEFS: MET and METplus files are present for accumulated precipitation verification.<br>
 
 CFS\_TMP\_grid\_stat\_metplus.conf:
 - Under \[config\], set INIT\_BEG and INIT\_END to the same desired initialization date
