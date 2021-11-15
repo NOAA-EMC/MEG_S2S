@@ -3,8 +3,9 @@
 # Developed: May 3, 2021 by Marcel Caron 
 # Last Modified: Oct. 27, 2021 by Marcel Caron             
 # Title: Taylor Diagram, modified
-# Descr.: Plots Standardized Mean Forecast Anomaly as a function 
-# of Anomaly Correlation Coefficient, with contoured Normalized 
+# Descr.: Plots Normalized Standardized Deviation of 
+# the Forecast Anomaly as a function of Anomaly 
+# Correlation Coefficient, with contoured Normalized 
 # Root Mean Squared Anomaly Error, in polar coordinates
 #
 ########################################################
