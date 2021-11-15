@@ -378,20 +378,22 @@ def plot_temp_probability(num, model, lons, lats, data, fstart, fend,
       category='physical',
       name='ocean',
       scale='50m',
-      facecolor='#5c5c5c')
+      facecolor='none')
    land = cf.NaturalEarthFeature(
       category='physical',
       name='land',
       scale='50m',
-      facecolor='#d3d3d3')
+      facecolor='none')
    lakes = cf.NaturalEarthFeature(
       category='physical',
       name='lakes',
       scale='50m',
-      facecolor='#5c5c5c')
+      facecolor='none')
    ax.add_feature(land, zorder=2)
    ax.add_feature(ocean, zorder=2)
-   ax.add_feature(lakes, edgecolor='black', linewidth=.5, zorder=2)
+   ax.add_feature(
+      lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2
+   )
    ax.add_feature(
       countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4
    )
@@ -435,7 +437,7 @@ def plot_temp_probability(num, model, lons, lats, data, fstart, fend,
 
    plot_temp_prob = ax.pcolormesh(
       lons, lats, data, shading='flat', cmap=cmap, vmin=vmin, vmax=vmax, 
-      zorder=3, transform=ccrs.PlateCarree(), norm=norm
+      zorder=1, transform=ccrs.PlateCarree(), norm=norm
    )
    print('Plotted ' + u'\u2713')
 
