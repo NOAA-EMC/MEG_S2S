@@ -627,10 +627,10 @@ def plot_height(num, model, lons, lats, data_hgt, valid, plevel,
    # domain with contour labels
    # If the contours don't fill the plot adequately, it might help to increase 
    # the buffer (+/- deg. lon/lat) on either side of the mask
-   mask1 = lons < lonrange[0] - 5. 
-   mask2 = lons > lonrange[1] + 5.
-   mask3 = lats > latrange[1] - 5.
-   mask4 = lats < latrange[0] + 5.
+   mask1 = lons < lonrange[0] - 15. 
+   mask2 = lons > lonrange[1] + 15.
+   mask3 = lats > latrange[1] - 15.
+   mask4 = lats < latrange[0] + 15.
    mask = mask1+mask2+mask3+mask4 
    mdata_hgt = np.ma.MaskedArray(data_hgt,mask=mask)
 
