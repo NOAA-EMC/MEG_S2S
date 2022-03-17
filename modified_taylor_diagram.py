@@ -3,9 +3,8 @@
 # Developed: May 3, 2021 by Marcel Caron 
 # Last Modified: Oct. 27, 2021 by Marcel Caron             
 # Title: Taylor Diagram, modified
-# Descr.: Plots Normalized Standardized Deviation of 
-# the Forecast Anomaly as a function of Anomaly 
-# Correlation Coefficient, with contoured Normalized 
+# Descr.: Plots Standardized Mean Forecast Anomaly as a function 
+# of Anomaly Correlation Coefficient, with contoured Normalized 
 # Root Mean Squared Anomaly Error, in polar coordinates
 #
 ########################################################
@@ -34,7 +33,7 @@ STATS_DIR = '/scratch2/NCEPDEV/stmp1/Shannon.Shields/scripts/s2s/cases/met_out/G
 # ~~~~~~~
 # Desired directory for saving output plots
 # ~~~~~~~
-SAVE_DIR = '/scratch2/NCEPDEV/ovp/Marcel.Caron/MEG/cases/tests/'
+SAVE_DIR = '/scratch2/NCEPDEV/stmp1/Shannon.Shields/scripts/s2s/cases/'
 
 # ~~~~~~~
 # Continuation of STATS_DIR, in order to get the paths to statistics files
@@ -83,7 +82,7 @@ varbl = 'TMP'
 # Create plots for each init, plev, and model at each of the following domains
 # Needs to be defined in the METplus statistics output under 'VXMASK' column
 # ~~~~~~~
-domains = ['conus']
+domains = ['g003', 'conus']
 
 # ~~~~~~~
 # list of colors and shapes used to plot each requested model onto the diagram.

@@ -16,7 +16,7 @@ ${METPLUS_MODEL}
 // Output description to be written
 // May be set separately in each "obs.field" entry
 //
-// desc = 
+// desc =
 ${METPLUS_DESC}
 
 //
@@ -40,13 +40,13 @@ ${METPLUS_REGRID_DICT}
 //
 //censor_thresh    = 
 ${METPLUS_CENSOR_THRESH}
-//censor_val       =
-${METPLUS_CENSOR_VAL} 
-cat_thresh       = [ NA ];
-cnt_thresh       = [ NA ];
-cnt_logic        = UNION;
-wind_thresh      = [ NA ];
-wind_logic       = UNION;
+//censor_val       = 
+${METPLUS_CENSOR_VAL}
+cat_thresh  = [ NA ];
+cnt_thresh  = [ NA ];
+cnt_logic   = UNION;
+wind_thresh = [ NA ];
+wind_logic  = UNION;
 eclv_points      = 0.05;
 nc_pairs_var_suffix = "";
 //nc_pairs_var_name = 
@@ -84,7 +84,6 @@ ${METPLUS_CLIMO_STDEV_DICT}
 //
 //climo_cdf = {
 ${METPLUS_CLIMO_CDF_DICT}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -170,7 +169,7 @@ ${METPLUS_DISTANCE_MAP_DICT}
 // Statistical output types
 //
 //output_flag = {
-${METPLUS_OUTPUT_FLAG_DICT}  
+${METPLUS_OUTPUT_FLAG_DICT}
 
 //
 // NetCDF matched pairs output file
@@ -181,8 +180,8 @@ ${METPLUS_NC_PAIRS_FLAG_DICT}
 
 ////////////////////////////////////////////////////////////////////////////////
 
-//grid_weight_flag = 
-${METPLUS_GRID_WEIGHT_FLAG}
+//grid_weight_flag =
+${METPLUS_GRID_WEIGHT_FLAG} 
 tmp_dir          = "${MET_TMP_DIR}";
 //output_prefix    = 
 ${METPLUS_OUTPUT_PREFIX}
@@ -190,3 +189,4 @@ ${METPLUS_OUTPUT_PREFIX}
 ////////////////////////////////////////////////////////////////////////////////
 
 ${METPLUS_MET_CONFIG_OVERRIDES}
+
