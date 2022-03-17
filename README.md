@@ -151,7 +151,7 @@ _For GEFS:_ MET and METplus files are preset for temperature and accumulated pre
 ### OPTIONAL INSTRUCTIONS FOR SETTING UP THE MET CONFIG FILES
 
 - Almost all MET config variables are set within the METplus config file
-- For ${METPLUS_REGRID_DICT}, GRID\_STAT\_REGRID\_TO\_GRID can be set to FCST, OBS, or a named NCEP Grid \(e.g., G003\) to a comma-separated list of strings containing paths to polylines, if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
+- Under METplus \[config\], GRID\_STAT\_MASK\_POLY can be set to a comma-separated list of strings containing paths to polylines, if desired. May also leave blank.  Polylines are defined in .poly files, with the name of the polygon/domain at the top \(this will be the "VX\_MASK" in stat output files\), followed by a column of lat/lon pairs indicating polygon vertices. The first and last coordinates in the column should be the same \(closed polygon\).
 - For ${METPLUS_REGRID_DICT}, GRID\_STAT\_REGRID\_TO\_GRID can be set to FCST, OBS, or a named NCEP Grid \(e.g., G003\)
 
 ---
