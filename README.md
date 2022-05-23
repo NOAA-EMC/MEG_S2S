@@ -1,10 +1,10 @@
 # S2S\_Python
-##### Contributors:  Marcel Caron \(NOAA/EMC\),
+##### Contributors:  Marcel Caron and Shannon Shields \(NOAA/EMC\)
 ##### Description:   Python library containing tools for case-by-case 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seasonal and subseasonal verification in the EMC Model 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Evaluation Group.
 ##### Created:       Sept. 29, 2021
-##### Last Modified: March 16, 2022
+##### Last Modified: May 23, 2022
 
 ---
 ### SET UP
@@ -16,6 +16,7 @@ Via Hera, it is suggested to have the following lines in your .bashrc or .cshrc 
 > module use /scratch2/NCEPDEV/nwprod/hpc-stack/libs/hpc-stack/modulefiles/stack
 > module load hpc/1.1.0
 > module load hpc-intel/18.0.5.274
+> module load intel/2022.1.2
 > module use -a /contrib/hpss/modulefiles
 > module load hpss
 > module use -a /contrib/wgrib/modulefiles
@@ -27,9 +28,9 @@ Via Hera, it is suggested to have the following lines in your .bashrc or .cshrc 
 > module use -a /contrib/anaconda/modulefiles
 > module load anaconda/latest
 > module use -a /contrib/met/modulefiles
-> module load met/10.1.0
+> module load met/10.1.1
 > module use -a /contrib/METplus/modulefiles
-> module load metplus/4.1.0
+> module load metplus/4.1.1
 > module load nco/4.9.3
 ```
 
