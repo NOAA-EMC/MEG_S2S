@@ -4,7 +4,7 @@
 # for several models, obs, and climatology (Sfc./ isobaric temperature contours) 
 # Author: Marcel Caron
 # Created: Aug. 27, 2021
-# Last Modified: Feb. 7, 2022
+# Last Modified: May 20, 2022
 # ==========================================
 
 import os
@@ -13,6 +13,7 @@ import cfgrib
 import xarray as xr
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
+import cartopy
 import cartopy.crs as ccrs
 import cartopy.feature as cf
 from datetime import datetime, timedelta as td
@@ -358,15 +359,24 @@ def plot_anom(num, model, lons, lats, data_tmp, valid, plevel, init=None, domain
       name='lakes',
       scale='50m',
       facecolor='none')
-   ax.add_feature(land, zorder=2)
+   #Original settings
+   #ax.add_feature(land, zorder=2)
    #Comment out if 2mt
-   ax.add_feature(ocean, zorder=2)
+   #ax.add_feature(ocean, zorder=2)
    #Mask ocean for 2mt
    #ax.add_feature(cf.OCEAN, zorder=100, edgecolor='white', facecolor='white')
-   ax.add_feature(lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2)
-   ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
-   ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
-   ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #ax.add_feature(lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2)
+   #ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
+   #ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
+   #ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #Fix for Lake MI boundary line
+   ax.add_feature(cf.LAND.with_scale('50m'),facecolor='none',edgecolor='face')
+   #Mask ocean for 2mt
+   #ax.add_feature(cf.OCEAN, zorder=100, edgecolor='white', facecolor='white')
+   ax.add_feature(cf.LAKES.with_scale('50m'),facecolor='none',edgecolor='black')
+   ax.add_feature(cf.STATES.with_scale('50m'),linewidths=0.3,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.BORDERS.with_scale('50m'),linewidths=0.5,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.COASTLINE.with_scale('50m'),linewidths=0.6,linestyle='solid',edgecolor='k',zorder=4)
    latlongrid=5.
    parallels = list(np.arange(0., 90., latlongrid))
    meridians = list(np.arange(180., 360., latlongrid))
@@ -490,15 +500,24 @@ def plot_temp(num, model, lons, lats, data_tmp, valid, plevel, init=None, domain
       name='lakes',
       scale='50m',
       facecolor='none')
-   ax.add_feature(land, zorder=2)
+   #Original
+   #ax.add_feature(land, zorder=2)
    #Comment out if 2mt
-   ax.add_feature(ocean, zorder=2)
+   #ax.add_feature(ocean, zorder=2)
    #Mask ocean for 2mt
    #ax.add_feature(cf.OCEAN, zorder=100, edgecolor='white', facecolor='white')
-   ax.add_feature(lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2)
-   ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
-   ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
-   ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #ax.add_feature(lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2)
+   #ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
+   #ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
+   #ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #Fix for Lake MI boundary line
+   ax.add_feature(cf.LAND.with_scale('50m'),facecolor='none',edgecolor='face')
+   #Mask ocean for 2mt
+   #ax.add_feature(cf.OCEAN, zorder=100, edgecolor='white', facecolor='white')
+   ax.add_feature(cf.LAKES.with_scale('50m'),facecolor='none',edgecolor='black')
+   ax.add_feature(cf.STATES.with_scale('50m'),linewidths=0.3,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.BORDERS.with_scale('50m'),linewidths=0.5,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.COASTLINE.with_scale('50m'),linewidths=0.6,linestyle='solid',edgecolor='k',zorder=4)
    latlongrid=5.
    parallels = list(np.arange(0., 90., latlongrid))
    meridians = list(np.arange(180., 360., latlongrid))
@@ -566,21 +585,21 @@ def plot_temp(num, model, lons, lats, data_tmp, valid, plevel, init=None, domain
       #'#ffe0f5', # > 120. F  
    #]
    MEG_temp_colors = [
-      '#ab6eed', # < -60. F
+      '#ffe1ff', # < -60. F #ab6eed
       '#a34df8', # -60.  -  -56. F
-      '#9032ec', # -56.  -  -52. F
+      '#68228b', # -56.  -  -52. F #9032ec
       '#8731e7', # -52.  -  -48. F
       '#9830e0', # -48.  -  -44. F
       '#cb56df', # -44.  -  -40. F
       '#ff8ee1', # -40.  -  -36. F
       '#f755e8', # -36.  -  -32. F
-      '#f338bc', # -32.  -  -28. F
+      '#cd1076', # -32.  -  -28. F #f338bc
       '#ec2ea4', # -28.  -  -24. F
       '#ca5dc8', # -24.  -  -20. F
       '#a9bceb', # -20.  -  -16. F
-      '#86dcff', # -16.  -  -12. F
-      '#74cdff', # -12.  -  -8.0 F
-      '#4fafff', # -8.0  -  -4.0 F
+      '#00ffff', # -16.  -  -12. F #86dcff
+      '#7ac5cd', # -12.  -  -8.0 F
+      '#74cdff', # -8.0  -  -4.0 F #4fafff
       '#2fa5e3', # -4.0  -  0.00 F
       '#19aead', # 0.00  -  4.00 F
       '#01b877', # 4.00  -  8.00 F
@@ -589,11 +608,11 @@ def plot_temp(num, model, lons, lats, data_tmp, valid, plevel, init=None, domain
       '#f6f500', # 16.0  -  20.0 F
       '#f8c80e', # 20.0  -  24.0 F
       '#fd9c1b', # 24.0  -  28.0 F
-      '#ff721d', # 28.0  -  32.0 F
+      '#ff7d40', # 28.0  -  32.0 F #ff721d
       '#ff5e16', # 32.0  -  36.0 F
       '#ff360a', # 36.0  -  40.0 F
-      '#ec2a05', # 40.0  -  44.0 F
-      '#e83a09', # 44.0  -  48.0 F
+      '#ee0000', # 40.0  -  44.0 F #ec2a05
+      '#8b0000', # 44.0  -  48.0 F #e83a09
       '#a34a0d', # 48.0  -  52.0 F
       '#9e3b18', # 52.0  -  56.0 F
       '#941d31', # 56.0  -  60.0 F

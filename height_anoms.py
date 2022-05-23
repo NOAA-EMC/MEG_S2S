@@ -4,7 +4,7 @@
 # several models, obs, and climatology (GP height contours)
 # Author: Marcel Caron
 # Created: Aug. 31, 2021
-# Last Modified: Jan. 25, 2022
+# Last Modified: May 18, 2022
 # ==========================================
 
 import os
@@ -13,6 +13,7 @@ import cfgrib
 import xarray as xr
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
+import cartopy
 import cartopy.crs as ccrs
 import cartopy.feature as cf
 from netCDF4 import Dataset
@@ -365,12 +366,19 @@ def plot_anom(num, model, lons, lats, data_hght, valid, plevel, init=None, domai
       name='lakes',
       scale='50m',
       facecolor='none')
-   ax.add_feature(land, zorder=2)
-   ax.add_feature(ocean, zorder=2)
-   ax.add_feature(lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2)
-   ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
-   ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
-   ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #Original settings
+   #ax.add_feature(land, zorder=2)
+   #ax.add_feature(ocean, zorder=2)
+   #ax.add_feature(lakes, edgecolor='black', facecolor='none', linewidth=.5, zorder=2)
+   #ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
+   #ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6) 
+   #ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #Fix for Lake MI boundary line
+   ax.add_feature(cf.LAND.with_scale('50m'),facecolor='none',edgecolor='face')
+   ax.add_feature(cf.LAKES.with_scale('50m'),facecolor='none',edgecolor='black')
+   ax.add_feature(cf.STATES.with_scale('50m'),linewidths=0.3,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.BORDERS.with_scale('50m'),linewidths=0.5,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.COASTLINE.with_scale('50m'),linewidths=0.6,linestyle='solid',edgecolor='k',zorder=4)
    latlongrid=5.
    parallels = list(np.arange(0., 90., latlongrid))
    meridians = list(np.arange(180., 360., latlongrid))
@@ -489,12 +497,20 @@ def plot_height(num, model, lons, lats, data_hgt, valid, plevel, contour_every=6
       name='lakes',
       scale='50m',
       facecolor='#5c5c5c')
-   ax.add_feature(land, zorder=2)
-   ax.add_feature(ocean, zorder=2)
-   ax.add_feature(lakes, edgecolor='black', linewidth=.5, zorder=2)
-   ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
-   ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
-   ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #Original
+   #ax.add_feature(land, zorder=2)
+   #ax.add_feature(ocean, zorder=2)
+   ax.add_feature(ocean)
+   #ax.add_feature(lakes, edgecolor='black', linewidth=.5, zorder=2)
+   #ax.add_feature(countries, edgecolor='black', facecolor='none', linewidth=.7, zorder=4)
+   #ax.add_feature(states, edgecolor='black', facecolor='none', linewidth=.5, zorder=6)
+   #ax.add_feature(coastlines, edgecolor='black', facecolor='none', linewidth=.4, zorder=5)
+   #Fix
+   ax.add_feature(cf.LAND.with_scale('50m'),facecolor='#d3d3d3',edgecolor='face')
+   ax.add_feature(cf.LAKES.with_scale('50m'),facecolor='#5c5c5c',edgecolor='black')
+   ax.add_feature(cf.STATES.with_scale('50m'),linewidths=0.3,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.BORDERS.with_scale('50m'),linewidths=0.5,linestyle='solid',edgecolor='k',zorder=4)
+   ax.add_feature(cf.COASTLINE.with_scale('50m'),linewidths=0.6,linestyle='solid',edgecolor='k',zorder=4)
    latlongrid=5.
    parallels = list(np.arange(0., 90., latlongrid))
    meridians = list(np.arange(180., 360., latlongrid))
@@ -536,7 +552,7 @@ def plot_height(num, model, lons, lats, data_hgt, valid, plevel, contour_every=6
    mdata_hgt = np.ma.MaskedArray(data_hgt,mask=mask)
 
    print('Plotting Heights ...')
-   plot_hgt = ax.contour(lons, lats, mdata_hgt, levels=contour_ints, colors='black', linewidths=1.5, transform=ccrs.PlateCarree(), zorder=9)
+   plot_hgt = ax.contour(lons, lats, mdata_hgt, levels=contour_ints, colors='black', linewidths=1.5, transform=ccrs.PlateCarree(), zorder=3) #9
    plt.clabel(plot_hgt, contour_ints, fmt='%i', fontsize=8.5, inline=1, inline_spacing=0,  manual=False)
 
    print('Plotted')
